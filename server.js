@@ -3,6 +3,9 @@ const express = require("express");
 const app = express();
 
 
+app.use("/.netlify/functions/api", app);
+module.exports.handler = serverless(app);
+
 // calling the mongodb function for collection and resolving it.then we are resolving the promise to an array.
 const dbcall = require(__dirname+"/mongocall.js");
 
@@ -104,4 +107,4 @@ app.post("/changepassword", async (req,res) => {
     
 
 //listening to the port 3010.
-app.listen(3010);
+app.listen(process.env.PORT || 3010);
