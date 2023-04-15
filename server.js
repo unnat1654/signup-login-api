@@ -10,6 +10,8 @@ const dbcall = require(__dirname+"/mongocall.js");
 //using express.static to define directory for resources
 app.use("/signupfiles",express.static("signup files"));
 app.use("/loginfiles",express.static("login files"));
+app.use("/updatefiles",express.static("update files"));
+
 
 
 //requiring body parser to use elements from html using name and values.
@@ -33,6 +35,12 @@ app.get("/login", (req,res) => {
     res.sendFile(__dirname+"/login files/login.html");
 });
 
+//API for change password page.
+app.get("/changepassword", (req,res) => {
+    res.sendFile(__dirname+"/update files/updatepass.html");
+});
+
+//API for hidden page
 app.get("/hiddenpage", (req,res) => {
     res.sendFile(__dirname+ "/hiddenpage.html");
 })
@@ -77,7 +85,20 @@ app.post("/login", async (req,res) => {
         }); 
     });
 });
-    
+
+//takes username and new password from user and compares username to the one in database 
+//if it exists then it updates the passwords
+app.post("/changepassword", async (req,res) => {  
+    const idpass = await dbcall.mongocall();
+    bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+        idpass.updateOne(
+            {username: req.body.username}, {
+                $set: {"password": hash}
+            }
+        );
+    });
+    res.redirect("/login");
+});
     
 
 //listening to the port 3010.

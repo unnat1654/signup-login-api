@@ -1,3 +1,4 @@
+//button for showing password in login page
 let eye_button =document.getElementById("showpassword-button");
 let password = document.getElementById("pass");
 function showpass() {
