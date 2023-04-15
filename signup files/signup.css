@@ -1,0 +1,49 @@
+.box{
+    background-color: white;
+    position: relative;
+    padding: 0px;
+}
+#workingMan{
+    box-sizing: border-box;
+    height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top:0vh;
+    left:0vw;
+    z-index: 1;
+
+}
+#regform{
+    z-index: 4;
+    position: relative;
+}
+@media (max-width: 600px) {
+    body{
+        margin:0px;
+    }
+    .box{
+        width:100vw;
+        height:75vh;
+        min-width:300px;
+        min-height:600px;
+
+    }
+    #workingMan{
+        max-height:100%;
+    }
+}
+    
+@media (min-width: 600px) {
+    .box{
+        
+        top:12vh;
+        left:15vw;
+        width:65vw;
+        height:75vh;
+        min-width:600px;
+        min-height:400px;
+    }
+    #workingMan{
+    }
+}
+

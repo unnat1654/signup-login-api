@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register online</title>
+    <link rel="stylesheet" href="/signupfiles/signup.css" type="text/css">
+</head>
+<body>
+    <!-- box containing form and background image -->
+    <div class="box">
+        <img src="/signupfiles/publicdomainq-business-man-working.webp" id="workingMan">
+        <form method="POST" action="/signup" id="regform">
+            <!-- simple form containing text, email, password and button types -->
+            <span class="regph">Please Enter A Username</span>
+            <br>
+            <input type="username" placeholder="Username" name="usern" id="regun" required>
+            <br>
+            <br>
+            <span class="regph">Please Enter A Email-Id</span>
+            <br>
+            <input type="email" placeholder="Email-Id" name="email" id="regei" required>
+            <br>
+            <br>
+            <span class="regph">Enter A Strong Password</span>
+            <br>
+            <input type="password" placeholder="Password" id="rep" name="password" required>
+            <br>
+            <!-- show password feature -->
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="checkbox" onclick="showpass()"><span>Show Password</span>
+            <br>
+            <br>
+            <button type="submit" name="submit" id="regbtn">Submit</button>
+        </form>
+    </div>
+    <!-- added show password feature to show client side js... -->
+    <script src="/signupfiles/signup.js"></script>
+</body>
+</html>
