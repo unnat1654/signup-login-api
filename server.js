@@ -80,5 +80,5 @@ app.post("/login", async (req,res) => {
     
     
 
-//listening to the port 3000.
-app.listen(3000);
+//listening to the port 3010.
+app.listen(3010);
