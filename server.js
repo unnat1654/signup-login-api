@@ -62,9 +62,10 @@ app.post("/signup",async (req,res) => {
 //posting the login form for entered values of username and password and comparing with password hash to login
 app.post("/login", async (req,res) => {
     dbcall.mongocall().then((response,err)=>{
-        response.find({username: req.body.username}).toArray().then((error,data)=>{
+        response.find({username: req.body.username}).toArray().then((data,error)=>{
             //in case username is not found in database
             if(error){
+                console.log(error)
                 res.redirect("/login");
             }   
             else {
@@ -78,6 +79,7 @@ app.post("/login", async (req,res) => {
                     }
                     //in case password is false
                     else if(result==false){
+                        console.log(req.body.password);
                         res.redirect("/login");
                     }
                 });
